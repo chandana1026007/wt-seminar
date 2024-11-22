@@ -1,0 +1,35 @@
+index.html
+<html>  
+<body>  
+<form action="welcome.jsp">  
+<input type="text" name="uname">  
+<input type="submit" value="go"><br/>  
+</form>  
+</body>  
+</html>  
+welcome.jsp
+<html>  
+<body>  
+<%   
+  
+String name=request.getParameter("uname");  
+out.print("Welcome "+name);  
+  
+pageContext.setAttribute("user",name,PageContext.SESSION_SCOPE);  
+  
+<a href="second.jsp">second jsp page</a>  
+  
+%>  
+</body>  
+</html>  
+second.jsp
+<html>  
+<body>  
+<%   
+  
+String name=(String)pageContext.getAttribute("user",PageContext.SESSION_SCOPE);  
+out.print("Hello "+name);  
+  
+%>  
+</body>  
+</html>  
